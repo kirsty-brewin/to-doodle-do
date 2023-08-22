@@ -4,12 +4,10 @@ import './App.css'
 import ToDoList from './ToDoList'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <CssBaseline />
-      <h1>to doodles</h1>
+      <h1>To doodles</h1>
       <ToDoList />
     </>
   )
