@@ -1,14 +1,13 @@
-import { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import './App.css'
-import ToDoList from './ToDoList'
+import TodoList from './TodoList'
 
 function App() {
   return (
     <>
       <CssBaseline />
       <h1>To doodles</h1>
-      <ToDoList />
+      <TodoList />
     </>
   )
 }

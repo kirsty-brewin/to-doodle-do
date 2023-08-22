@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import * as React from 'react'
 import List from '@mui/material/List'
-import ToDo from './ToDo'
+import Todo from './Todo'
 
 const initialTodos = [
   { id: 1, text: 'practice drawing basic lines and curves', completed: false },
@@ -10,12 +9,18 @@ const initialTodos = [
   { id: 1, text: 'draw in proportion using grids', completed: false },
 ]
 
-export default function ToDoList() {
+export default function TodoList() {
   const [todos, setTodos] = useState(initialTodos)
+
+  const removeTodo = (id) => {
+    setTodos((oldTodos) => {
+      return oldTodos.filter((t) => t.id !== id)
+    })
+  }
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {todos.map((todo) => (
-        <ToDo todo={todo} key={todo.id} />
+        <Todo todo={todo} key={todo.id} removeTodo={removeTodo} />
       ))}
     </List>
   )
