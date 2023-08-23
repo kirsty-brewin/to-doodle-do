@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import List from '@mui/material/List'
 import Todo from './Todo'
+import ToDoForm from './TodoForm'
 
 const initialTodos = [
   { id: 1, text: 'practice drawing basic lines and curves', completed: false },
@@ -27,6 +28,11 @@ export default function TodoList() {
         }
       })
     })
+    const addTodo = (text) => {
+      setTodos((oldTodos) => {
+        return [...oldTodos, { text: text, id: 8, completed: false }]
+      })
+    }
   }
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
@@ -38,6 +44,7 @@ export default function TodoList() {
           toggle={() => toggleTodo(todo.id)}
         />
       ))}
+      <ToDoForm addTodo={addTodo} />
     </List>
   )
 }
