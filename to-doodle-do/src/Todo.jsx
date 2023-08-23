@@ -13,7 +13,7 @@ export default function Todo({ todo, remove }) {
   return (
     <ListItem
       secondaryAction={
-        <IconButton edge="end" aria-label="comments" onClick={deleteTodo}>
+        <IconButton edge="end" aria-label="comments" onClick={removeTodo}>
           <CommentIcon />
         </IconButton>
       }
