@@ -1,17 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import List from '@mui/material/List'
 import Todo from './Todo'
 import ToDoForm from './TodoForm'
 
-const initialTodos = [
-  { id: 1, text: 'practice drawing basic lines and curves', completed: false },
-  { id: 1, text: 'draw a shape and use shading', completed: false },
-  { id: 1, text: 'practice drawing shadows', completed: true },
-  { id: 1, text: 'draw in proportion using grids', completed: false },
-]
+const getInitialData = () => {
+  const data = JSON.parse(localStorage.getItem('todos'))
+  if (!data) return []
+  return data
+}
 
 export default function TodoList() {
   const [todos, setTodos] = useState(initialTodos)
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   const removeTodo = (id) => {
     setTodos((oldTodos) => {
@@ -30,7 +33,10 @@ export default function TodoList() {
     })
     const addTodo = (text) => {
       setTodos((oldTodos) => {
-        return [...oldTodos, { text: text, id: 8, completed: false }]
+        return [
+          ...oldTodos,
+          { text: text, id: crypto.randomUUID(), completed: false },
+        ]
       })
     }
   }
