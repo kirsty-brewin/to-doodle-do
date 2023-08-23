@@ -10,7 +10,7 @@ const getInitialData = () => {
 }
 
 export default function TodoList() {
-  const [todos, setTodos] = useState(initialTodos)
+  const [todos, setTodos] = useState(getInitialData)
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos))
@@ -31,15 +31,17 @@ export default function TodoList() {
         }
       })
     })
-    const addTodo = (text) => {
-      setTodos((oldTodos) => {
-        return [
-          ...oldTodos,
-          { text: text, id: crypto.randomUUID(), completed: false },
-        ]
-      })
-    }
   }
+
+  const addTodo = (text) => {
+    setTodos((oldTodos) => {
+      return [
+        ...oldTodos,
+        { text: text, id: crypto.randomUUID(), completed: false },
+      ]
+    })
+  }
+
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {todos.map((todo) => (

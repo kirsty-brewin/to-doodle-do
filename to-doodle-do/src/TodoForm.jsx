@@ -5,7 +5,7 @@ import Create from '@mui/icons-material/Create'
 import { IconButton } from '@mui/material'
 import { InputAdornment } from '@mui/material'
 
-export default function ToDoForm(addTodo) {
+export default function ToDoForm({ addTodo }) {
   const [text, setText] = useState('')
   const handleChange = (evt) => {
     setText(evt.target.value)
@@ -16,11 +16,11 @@ export default function ToDoForm(addTodo) {
     setText('')
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <ListItem>
+    <ListItem>
+      <form onSubmit={handleSubmit}>
         <TextField
           id="outlined-basic"
-          label="Outlined"
+          label="What needs doing?"
           variant="outlined"
           onChange={handleChange}
           value={text}
@@ -34,7 +34,7 @@ export default function ToDoForm(addTodo) {
             ),
           }}
         />
-      </ListItem>
-    </form>
+      </form>
+    </ListItem>
   )
 }
