@@ -4,7 +4,8 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import Checkbox from '@mui/material/Checkbox'
 import IconButton from '@mui/material/IconButton'
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import { pink } from '@mui/material/colors'
 export default function Todo({ todo, remove, toggle }) {
   const labelId = `checkbox-list-label-${todo.id}`
   const removeTodo = () => {
@@ -14,7 +15,7 @@ export default function Todo({ todo, remove, toggle }) {
     <ListItem
       secondaryAction={
         <IconButton edge="end" aria-label="comments" onClick={removeTodo}>
-          <RemoveCircleOutlineIcon />
+          <DeleteForeverIcon />
         </IconButton>
       }
       disablePadding
@@ -28,6 +29,12 @@ export default function Todo({ todo, remove, toggle }) {
             disableRipple
             inputProps={{ 'aria-labelledby': labelId }}
             onChange={toggle}
+            sx={{
+              color: pink[800],
+              '&.Mui-checked': {
+                color: pink[600],
+              },
+            }}
           />
         </ListItemIcon>
         <ListItemText id={labelId} primary={todo.text} />

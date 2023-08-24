@@ -19,9 +19,10 @@ export default function ToDoForm({ addTodo }) {
     <ListItem>
       <form onSubmit={handleSubmit}>
         <TextField
-          id="outlined-basic"
+          id="outlined"
           label="What needs doing?"
           variant="outlined"
+          color="secondary"
           onChange={handleChange}
           value={text}
           InputProps={{

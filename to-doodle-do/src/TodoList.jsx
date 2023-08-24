@@ -43,7 +43,9 @@ export default function TodoList() {
   }
 
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List
+      sx={{ width: '100%', maxWidth: 360, bgcolor: '#ff8e3c', color: 'white' }}
+    >
       {todos.map((todo) => (
         <Todo
           todo={todo}
@@ -56,21 +58,3 @@ export default function TodoList() {
     </List>
   )
 }
-
-// export default function CheckboxList() {
-//   const [checked, setChecked] = React.useState([0]);
-
-//   const handleToggle = (value: number) => () => {
-//     const currentIndex = checked.indexOf(value);
-//     const newChecked = [...checked];
-
-//     if (currentIndex === -1) {
-//       newChecked.push(value);
-//     } else {
-//       newChecked.splice(currentIndex, 1);
-//     }
-
-//     setChecked(newChecked);
-//   };
-
-//   return (
